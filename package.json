@@ -26,6 +26,7 @@
     "cloudinary": "^1.29.0",
     "clsx": "^1.1.1",
     "connect-mongo": "^4.6.0",
+    "d3": "^7.4.4",
     "express-session": "^1.17.2",
     "modern-normalize": "^1.1.0",
     "mongodb": "^4.4.1",
