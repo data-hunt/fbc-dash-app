@@ -15,7 +15,7 @@ async function createIndexes(db) {
       .collection('tokens')
       .createIndex({ expireAt: -1 }, { expireAfterSeconds: 0 }),
     db
-      .collection('posts')
+      .collection('transactions')
       .createIndexes([{ key: { createdAt: -1 } }, { key: { creatorId: -1 } }]),
     db
       .collection('comments')

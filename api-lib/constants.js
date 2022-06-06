@@ -6,10 +6,16 @@ export const ValidateProps = {
     email: { type: 'string', minLength: 1 },
     bio: { type: 'string', minLength: 0, maxLength: 160 },
   },
-  post: {
+  transaction: {
     content: { type: 'string', minLength: 1, maxLength: 280 },
+    date: { type: 'string', minLength: 1, maxLength: 280 },
+    collectionName: { type: 'string', minLength: 1, maxLength: 280 },
+    collectionNumber: { type: 'string', minLength: 1, maxLength: 6 },
+    purchaseCost: { type: 'string', minLength: 1, maxLength: 280 },
+    transactionType: { type: 'string', minLength: 1, maxLength: 280 },
+    acquisitionSource: { type: 'string', minLength: 1, maxLength: 280 },
   },
-  comment: {
-    content: { type: 'string', minLength: 1, maxLength: 280 },
-  },
+  // comment: {
+  //   content: { type: 'string', minLength: 1, maxLength: 280 },
+  // },
 };

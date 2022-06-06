@@ -3,7 +3,7 @@ import { Container, Spacer } from '@/components/Layout';
 import Wrapper from '@/components/Layout/Wrapper';
 import { Post } from '@/components/Post';
 import { Text } from '@/components/Text';
-import { usePostPages } from '@/lib/post';
+import { usePostPages } from '@/lib/transaction';
 import Link from 'next/link';
 import styles from './UserPosts.module.css';
 

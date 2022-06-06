@@ -14,13 +14,17 @@ const Hero = () => {
         </h1>
         <Container justifyContent="center" className={styles.buttons}>
           <Container>
-            <Link passHref href="/feed">
+            <Link passHref href="/transactions">
               <ButtonLink className={styles.button}>Launch App</ButtonLink>
             </Link>
           </Container>
           <Spacer axis="horizontal" size={1} />
           <Container>
-            <ButtonLink href="#" type="secondary" className={styles.button}>
+            <ButtonLink
+              href="https://t.co/mYEQMwWvzj"
+              type="secondary"
+              className={styles.button}
+            >
               Join Discord
             </ButtonLink>
           </Container>
