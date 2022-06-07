@@ -42,6 +42,12 @@ handler.post(
 
     const transaction = await insertTransaction(req.db, {
       content: req.body.content,
+      date: req.body.date,
+      collectionName: req.body.collectionName,
+      collectionNumber: req.body.collectionNumber,
+      purchaseCost: req.body.purchaseCost,
+      transactionType: req.body.transactionType,
+      acquisitionSource: req.body.acquisitionSource,
       creatorId: req.user._id,
     });
 

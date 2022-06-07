@@ -9,6 +9,7 @@ const Transaction = ({ transaction, className }) => {
     <div className={clsx(styles.root, className)}>
       <div className={styles.wrap}>
         <p className={styles.content}>{transaction.content}</p>
+        <p className={styles.content}>{transaction.collectionName}</p>
       </div>
     </div>
   );

@@ -26,7 +26,10 @@ const PosterInner = ({ user }) => {
         await fetcher('/api/transactions', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ content: contentRef.current.value }),
+          body: JSON.stringify({
+            content: contentRef.current.value,
+            collectionName: contentRef.current.value,
+          }),
         });
         toast.success('You have posted successfully');
         contentRef.current.value = '';
@@ -50,6 +53,12 @@ const PosterInner = ({ user }) => {
           className={styles.input}
           placeholder={`What's on your mind, ${user.name}?`}
           ariaLabel={`What's on your mind, ${user.name}?`}
+        />
+        <Input
+          ref={contentRef}
+          className={styles.input}
+          placeholder={`Collection name`}
+          ariaLabel={`Collection name`}
         />
         <Button type="success" loading={isLoading}>
           Post
