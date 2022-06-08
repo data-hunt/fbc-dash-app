@@ -1,7 +1,7 @@
 import { Avatar } from '@/components/Avatar';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
-import { Container, Wrapper } from '@/components/Layout';
+import { Container, Spacer, Wrapper } from '@/components/Layout';
 import { LoadingDots } from '@/components/LoadingDots';
 import { Text, TextLink } from '@/components/Text';
 import { fetcher } from '@/lib/fetch';
@@ -13,7 +13,12 @@ import toast from 'react-hot-toast';
 import styles from './TransactionPoster.module.css';
 
 const PosterInner = ({ user }) => {
-  const contentRef = useRef();
+  const collectionNameRef = useRef();
+  const collectionNumberRef = useRef();
+  const purchaseDateRef = useRef();
+  const purchaseCostRef = useRef();
+  const transactionTypeRef = useRef();
+  const acquisitionSourceRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
 
   const { mutate } = useTransactionPages();
@@ -27,12 +32,23 @@ const PosterInner = ({ user }) => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            content: contentRef.current.value,
-            collectionName: contentRef.current.value,
+            // content: contentRef.current.value,
+            collectionName: collectionNameRef.current.value,
+            collectionNumber: collectionNumberRef.current.value,
+            purchaseDate: purchaseDateRef.current.value,
+            purchaseCost: purchaseCostRef.current.value,
+            transactionType: transactionTypeRef.current.value,
+            acquisitionSource: acquisitionSourceRef.current.value,
           }),
         });
         toast.success('You have posted successfully');
-        contentRef.current.value = '';
+        // contentRef.current.value = '';
+        collectionNameRef.current.value = '';
+        collectionNumberRef.current.value = '';
+        purchaseDateRef.current.value = '';
+        purchaseCostRef.current.value = '';
+        transactionTypeRef.current.value = '';
+        acquisitionSourceRef.current.value = '';
         // refresh post lists
         mutate();
       } catch (e) {
@@ -47,21 +63,46 @@ const PosterInner = ({ user }) => {
   return (
     <form onSubmit={onSubmit}>
       <Container className={styles.poster}>
-        <Avatar size={40} username={user.username} url={user.profilePicture} />
+        {/* <Avatar size={40} username={user.username} url={user.profilePicture} /> */}
         <Input
-          ref={contentRef}
-          className={styles.input}
-          placeholder={`What's on your mind, ${user.name}?`}
-          ariaLabel={`What's on your mind, ${user.name}?`}
-        />
-        <Input
-          ref={contentRef}
+          ref={collectionNameRef}
           className={styles.input}
           placeholder={`Collection name`}
           ariaLabel={`Collection name`}
         />
+        <Input
+          ref={collectionNumberRef}
+          className={styles.input}
+          placeholder={`Collection number`}
+          ariaLabel={`Collection number`}
+        />
+        <Input
+          ref={purchaseDateRef}
+          className={styles.input}
+          placeholder={`Purchase date`}
+          ariaLabel={`Purchase date`}
+        />
+        <Input
+          ref={purchaseCostRef}
+          className={styles.input}
+          placeholder={`Purchase cost`}
+          ariaLabel={`Purchase cost`}
+        />
+        <Input
+          ref={transactionTypeRef}
+          className={styles.input}
+          placeholder={`Transaction type`}
+          ariaLabel={`Transaction type`}
+        />
+        <Input
+          ref={acquisitionSourceRef}
+          className={styles.input}
+          placeholder={'Acquisition source'}
+          ariaLabel={'Acquisition source'}
+        />
+
         <Button type="success" loading={isLoading}>
-          Post
+          Submit
         </Button>
       </Container>
     </form>
@@ -75,7 +116,7 @@ const Poster = () => {
   return (
     <Wrapper>
       <div className={styles.root}>
-        <h3 className={styles.heading}>Share your thoughts</h3>
+        <h3 className={styles.heading}>Add transaction</h3>
         {loading ? (
           <LoadingDots>Loading</LoadingDots>
         ) : data?.user ? (

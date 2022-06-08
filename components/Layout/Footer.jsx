@@ -9,9 +9,9 @@ const Footer = () => {
     <footer className={styles.footer}>
       <Wrapper>
         <Text color="accents-7">
-          Made with ❤️, 🔥, and a keyboard by{' '}
+          Powered by the{' '}
           <TextLink href="https://hoangvvo.com/" color="link">
-            Hoang Vo
+            Fearless Bulls Club
           </TextLink>
           .
         </Text>

@@ -24,15 +24,16 @@ handler.post(
   validateBody({
     type: 'object',
     properties: {
-      content: ValidateProps.transaction.content,
-      date: ValidateProps.transaction.date,
+      // content: ValidateProps.transaction.content,
+      purchaseDate: ValidateProps.transaction.date,
       collectionName: ValidateProps.transaction.collectionName,
       collectionNumber: ValidateProps.transaction.collectionNumber,
       purchaseCost: ValidateProps.transaction.purchaseCost,
       transactionType: ValidateProps.transaction.transactionType,
       acquisitionSource: ValidateProps.transaction.acquisitionSource,
     },
-    required: ['content'],
+    required: ['collectionName'],
+    required: ['purchaseCost'],
     additionalProperties: false,
   }),
   async (req, res) => {
@@ -41,8 +42,8 @@ handler.post(
     }
 
     const transaction = await insertTransaction(req.db, {
-      content: req.body.content,
-      date: req.body.date,
+      // content: req.body.content,
+      purchaseDate: req.body.purchaseDate,
       collectionName: req.body.collectionName,
       collectionNumber: req.body.collectionNumber,
       purchaseCost: req.body.purchaseCost,
