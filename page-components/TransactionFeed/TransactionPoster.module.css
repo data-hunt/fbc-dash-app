@@ -5,6 +5,7 @@
   border-radius: 8px;
   height: 132px;
   transition: ease 0.2s box-shadow;
+  margin-top: 50px;
 }
 
 .root:hover {

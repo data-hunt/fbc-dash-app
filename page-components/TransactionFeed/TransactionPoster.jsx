@@ -129,7 +129,7 @@ const Poster = () => {
                 sign in
               </TextLink>
             </Link>{' '}
-            to post
+            to add transactions
           </Text>
         )}
       </div>
